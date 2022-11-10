@@ -20,12 +20,20 @@ public class JThread extends Thread{
 	public void run() {
 		System.out.println("Thread " + this.getNome() + " Rodadando");
 
+
 		try {
-			this.wait();
+			this.join();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+	
+	@Override
+	public synchronized void start() {
+		System.out.println("iniciou");
+		super.start();
 	}
 	
 	public void esperar() {
